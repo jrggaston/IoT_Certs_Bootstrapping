@@ -20,4 +20,8 @@ The comunication between the device and the server is done via HTTPS.
 
 The server requeries the certificates of its CA, and the certificate of the HTTPS server. Besides, it needs a database with the devices inventory.
 
+The server is launched by executing $ python ID_server.py
+
 On the other hand, the device needs to store its serial number, its factory date, and the IP and PORT of the server. 
+
+The device starts the certificates request to the server by executing $ python IoT_Device.py
