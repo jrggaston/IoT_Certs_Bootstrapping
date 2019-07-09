@@ -20,4 +20,4 @@ The comunication between the device and the server is done via HTTPS.
 
 The server requeries the certificates of its CA, and the certificate of the HTTPS server. Besides, it needs a database with the devices inventory.
 
-On the other hand, the device need to store it serial number, its factory date, and the IP and PORT of the server. 
+On the other hand, the device needs to store its serial number, its factory date, and the IP and PORT of the server. 
