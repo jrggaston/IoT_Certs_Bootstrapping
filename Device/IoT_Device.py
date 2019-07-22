@@ -1,4 +1,5 @@
 from os.path import exists
+from os import mkdir
 import hashlib
 import time
 import random
@@ -6,8 +7,9 @@ import iot_boot_api
 import json
 import datetime
 
-private_key_path = "/usr/local/certs/device_key.key"
-certificate_path = "/usr/local/certs/device_cert.crt"
+certs_path = "/usr/local/certs"
+private_key_path = certs_path + "/" + "device_key.key"
+certificate_path = certs_path + "/" + "device_cert.crt"
 snr_path = "/var/local/snr"
 fd_path = "/var/local/fd"
 
@@ -51,6 +53,13 @@ if (find_file(private_key_path) == False or find_file(certificate_path) == False
     if (not find_file(fd_path)):
         print "[" + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') +  "] No FD file found"
         exit()
+
+    if not (exists(certs_path)):
+    	try:
+            mkdir(certs_path)
+	except:
+           print "Unable to create: " + certs_path
+           exit()
 
     snr = get_data(snr_path)
     fd = get_data(fd_path)
