@@ -2,6 +2,7 @@ from OpenSSL import crypto, SSL
 from socket import gethostname
 from time import  time, mktime
 from os.path import join
+from os.path import exists
 
 def generate_certificate(output_path, snr):
     
@@ -32,6 +33,10 @@ def generate_certificate(output_path, snr):
     
 
 def sign_certificate(input_path, serial_number, valid_time, output_path):
+
+    if ((not exists("rootCA.key")) or (not exists("rootCA.pem"))):
+        #print "CA certificates does not exist. Unable to sign the csr."
+        return NULL
 
     # get the device
     deviceCsr = crypto.load_certificate_request(crypto.FILETYPE_PEM, open(join(input_path, "device.csr"), 'rb').read()) 
