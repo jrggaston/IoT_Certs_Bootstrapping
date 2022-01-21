@@ -1,8 +1,8 @@
 # IoT_Certs_Bootstrapping
 
-DISCLAIMER: This project is a proof of concept develop as part of a MSc in Cibersecurity, not intended for comercial use.
+DISCLAIMER: This project is a proof of concept developed as part of a MSc in Cibersecurity, not intended for comercial use.
 
-This projects tries to solve the problem of how the certificates are installed in the devices of an IoT Network.
+This project tries to solve the problem of how the certificates are installed in the devices of an IoT Network.
 
 The project consist of an ID server that receives the requests from the devices, generetes the certificates with its own CA, and deliver them to the devivces.
 
